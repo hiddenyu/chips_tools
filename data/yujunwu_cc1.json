@@ -1,0 +1,13 @@
+{
+    "levels": [
+        {
+            "levelNumber" : 1,
+            "encodedPassword" : [219, 212, 195, 200],
+            "mapTitle" : "Test Level 1",
+            "hintText" : "fefhosjdhfnksjn",
+            "time" : 200,
+            "chipNumber" : 3,
+            "upperLayer" : []
+        }
+    ]
+}
