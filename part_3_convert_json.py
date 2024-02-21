@@ -25,10 +25,13 @@ def defineLevels(file):
         levelTitle = cc_classes.CCMapTitleField(level["mapTitle"])
         levelHint = cc_classes.CCMapHintField(level["hintText"])
         levelPassword = cc_classes.CCEncodedPasswordField(level["encodedPassword"])
+        monsterCoord = cc_classes.CCCoordinate(level["monsterX"], level["monsterY"])
+        monsterMovement = cc_classes.CCMonsterMovementField([monsterCoord])
 
         newLevel.add_field(levelTitle)
         newLevel.add_field(levelHint)
         newLevel.add_field(levelPassword)
+        newLevel.add_field(monsterMovement)
 
         levelPack.add_level(newLevel)
 
