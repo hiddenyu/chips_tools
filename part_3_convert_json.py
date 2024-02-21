@@ -25,9 +25,15 @@ def defineLevels(file):
         levelTitle = cc_classes.CCMapTitleField(level["mapTitle"])
         levelHint = cc_classes.CCMapHintField(level["hintText"])
         levelPassword = cc_classes.CCEncodedPasswordField(level["encodedPassword"])
-        monsterCoord = cc_classes.CCCoordinate(level["monsterX"], level["monsterY"])
-        monsterMovement = cc_classes.CCMonsterMovementField([monsterCoord])
 
+        # set up each monster
+        monsterList = []
+        for i in range(len(level["monsterX"])):
+            monsterCoord = cc_classes.CCCoordinate(level["monsterX"][i], level["monsterY"][i])
+            monsterList.append(monsterCoord)
+        
+        monsterMovement = cc_classes.CCMonsterMovementField(monsterList)
+        
         newLevel.add_field(levelTitle)
         newLevel.add_field(levelHint)
         newLevel.add_field(levelPassword)
@@ -40,6 +46,7 @@ def defineLevels(file):
 convertedLevels = defineLevels(jsonLevels)
 # print(convertedLevels)
 datLevels = cc_dat_utils.write_cc_level_pack_to_dat(convertedLevels, "yujunwu_cc1.dat")
+
 
 
 
