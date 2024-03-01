@@ -28,8 +28,10 @@ def defineLevels(file):
 
         # set up each monster
         monsterList = []
-        for i in range(len(level["monsterX"])):
-            monsterCoord = cc_classes.CCCoordinate(level["monsterX"][i], level["monsterY"][i])
+        for position in level["monsterCoords"]:
+            monsterX = position[0]
+            monsterY = position[1]
+            monsterCoord = cc_classes.CCCoordinate(monsterX, monsterY)
             monsterList.append(monsterCoord)
         
         monsterMovement = cc_classes.CCMonsterMovementField(monsterList)
@@ -44,7 +46,7 @@ def defineLevels(file):
     return levelPack
 
 convertedLevels = defineLevels(jsonLevels)
-# print(convertedLevels)
+print(convertedLevels)
 datLevels = cc_dat_utils.write_cc_level_pack_to_dat(convertedLevels, "yujunwu_cc1.dat")
 
 
