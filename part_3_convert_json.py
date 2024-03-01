@@ -2,7 +2,7 @@ import cc_dat_utils
 import cc_classes
 import json
 
-jsonFile = "data/yujunwu_cc1.json"
+jsonFile = "data/yujunwu_cc_level_pack.json"
 
 with open(jsonFile, "r") as reader:
     jsonLevels = json.load(reader)
@@ -46,8 +46,8 @@ def defineLevels(file):
     return levelPack
 
 convertedLevels = defineLevels(jsonLevels)
-print(convertedLevels)
-datLevels = cc_dat_utils.write_cc_level_pack_to_dat(convertedLevels, "yujunwu_cc1.dat")
+# print(convertedLevels)
+datLevels = cc_dat_utils.write_cc_level_pack_to_dat(convertedLevels, "yujunwu_cc_level_pack.dat")
 
 
 
